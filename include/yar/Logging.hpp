@@ -98,6 +98,7 @@
 #define ASSERT_LT(lhs, rhs)  ASSERT_OP(< , lhs, rhs)
 #define ASSERT_GE(lhs, rhs)  ASSERT_OP(>=, lhs, rhs)
 #define ASSERT_GT(lhs, rhs)  ASSERT_OP(> , lhs, rhs)
+#define ASSERT(expression) if(!!(expression)) ; else yar::ThrowOnDestroy(__FUNCTION__, __FILE__, __LINE__).stream() << "[" #expression "] - Failed (" << expression << ")"
 
 #define CHECK_OP(op, lhs, rhs, severity) if(lhs op rhs)  LOG(severity) << "[" << #lhs << " " << #op << " " << #rhs << "] - Failed (" << lhs << " " <<  #op << " " << rhs << ")"
 
