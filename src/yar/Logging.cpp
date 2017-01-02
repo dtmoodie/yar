@@ -404,7 +404,6 @@ yar::ThrowOnDestroy_trace::~ThrowOnDestroy_trace() YAR_THROW_SPECIFIER
 {
     std::stringstream ss;
     LOG(trace) << "Exception at" << yar::print_callstack(0, true, ss) << log_stream_.str();
-    throw yar::ExceptionWithCallStack<std::string>(log_stream_.str(), ss.str());
 }
 
 yar::ThrowOnDestroy_debug::ThrowOnDestroy_debug(const char* function, const char* file, int line) : ThrowOnDestroy(function, file, line)
@@ -419,8 +418,6 @@ yar::ThrowOnDestroy_info::~ThrowOnDestroy_info() YAR_THROW_SPECIFIER
 {
     std::stringstream ss;
     LOG(info) << "Exception at" << yar::print_callstack(0, true, ss) << log_stream_.str();
-    
-    throw yar::ExceptionWithCallStack<std::string>(log_stream_.str(), ss.str());
 }
 
 yar::ThrowOnDestroy_warning::ThrowOnDestroy_warning(const char* function, const char* file, int line) : ThrowOnDestroy(function, file, line) {}
@@ -428,7 +425,5 @@ yar::ThrowOnDestroy_warning::~ThrowOnDestroy_warning() YAR_THROW_SPECIFIER
 {
     std::stringstream ss;
     LOG(warning) << "Exception at" << yar::print_callstack(0, true, ss) << log_stream_.str();
-    throw yar::ExceptionWithCallStack<std::string>(log_stream_.str(), ss.str());
-    
 }
 
